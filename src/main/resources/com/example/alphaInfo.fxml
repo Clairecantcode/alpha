@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.AlphaInfo">
+   <children>
+      <ImageView fitHeight="410.0" fitWidth="607.0" layoutX="-6.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@capstone/Dark-Woods-Desktop-Background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="341.0" fitWidth="678.0" layoutX="-41.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@capstone/square.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="hiName" layoutX="273.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi name!" />
+      <Text layoutX="152.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To make this more fun, you are going to pretend you are a wolf! Don't worry though, this game still offers great knowledge :)" textAlignment="CENTER" wrappingWidth="296.74951171875" />
+      <Button fx:id="playButt" layoutX="280.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#startGame" text="Play" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GameScreen">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="613.0" layoutX="-8.0" layoutY="-7.0" pickOnBounds="true">
+         <image>
+            <Image url="@capstone/Dark-Woods-Desktop-Background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="208.0" fitWidth="331.0" layoutX="185.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@capstone/wolf%20pup.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="19.0" layoutY="289.0" prefHeight="100.0" prefWidth="572.0">
+         <children>
+            <ImageView id="foodButt" fx:id="foodButt" fitHeight="101.0" fitWidth="160.0" onMouseClicked="#chooseFood" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@capstone/steak.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="waterButt" fitHeight="109.0" fitWidth="159.0" onMouseClicked="#chooseWater" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@capstone/water.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="healthButt" fitHeight="116.0" fitWidth="176.0" onMouseClicked="#chooseHealth" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@capstone/med.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="shelterButt" fitHeight="133.0" fitWidth="158.0" onMouseClicked="#chooseShelter" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@capstone/shelter.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fx:id="thumbsUpGuy" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7" visible="false">
+         <image>
+            <Image url="@capstone/thumbs%20up.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="squareForFeedback" fitHeight="255.0" fitWidth="439.0" layoutX="275.0" layoutY="56.0" pickOnBounds="true" rotate="90.0" visible="false">
+         <image>
+            <Image url="@capstone/square.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="feedbackText" layoutX="415.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" wrappingWidth="158.0" />
+      <VBox layoutX="7.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="foodBar" fitHeight="44.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@capstone/bars/green1.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="foodStat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="~/5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="waterBar" fitHeight="41.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@capstone/bars/blue1.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="waterStat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="~/5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="healthBar" fitHeight="43.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@capstone/bars/red1.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="healthStat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="~/5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="warmthBar" fitHeight="47.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@capstone/bars/yellow1.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="warmthStat" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="~/5" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fx:id="bear" fitHeight="150.0" fitWidth="200.0" layoutX="19.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@capstone/bear.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="thunder" fitHeight="150.0" fitWidth="179.0" layoutX="185.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@capstone/thunder.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bottle" fitHeight="92.0" fitWidth="70.0" layoutX="351.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@capstone/bottle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tree" fitHeight="326.0" fitWidth="200.0" layoutX="405.0" layoutY="27.0" pickOnBounds="true" visible="false">
+         <image>
+            <Image url="@capstone/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wolf2" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@capstone/wolf2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wolf3" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@capstone/wolf3.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
