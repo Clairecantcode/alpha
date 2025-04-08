@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GameScreen">
    <children>
@@ -44,17 +44,17 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="thumbsUpGuy" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7" visible="false">
+      <ImageView fx:id="thumbsUpGuy" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7">
          <image>
             <Image url="@capstone/thumbs%20up.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="squareForFeedback" fitHeight="255.0" fitWidth="439.0" layoutX="275.0" layoutY="56.0" pickOnBounds="true" rotate="90.0" visible="false">
+      <ImageView fx:id="squareForFeedback" fitHeight="255.0" fitWidth="439.0" layoutX="275.0" layoutY="56.0" pickOnBounds="true" rotate="90.0">
          <image>
             <Image url="@capstone/square.png" />
          </image>
       </ImageView>
-      <Text fx:id="feedbackText" layoutX="415.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" wrappingWidth="158.0" />
+      <Text fx:id="feedbackText" layoutX="415.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="158.0" />
       <VBox layoutX="7.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="100.0">
@@ -129,5 +129,22 @@
             <Image url="@capstone/wolf3.png" />
          </image>
       </ImageView>
+      <Text fx:id="points" fill="WHITE" layoutX="415.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points Available For Year: 5/5" />
+      <ImageView fx:id="statsArrow" fitHeight="105.0" fitWidth="144.0" layoutX="157.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" rotate="14.9" visible="false">
+         <image>
+            <Image url="@capstone/arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="choicesArrow" fitHeight="92.0" fitWidth="119.0" layoutX="236.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-53.1" visible="false">
+         <image>
+            <Image url="@capstone/arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pointsArrow" fitHeight="105.0" fitWidth="99.0" layoutX="318.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" rotate="150.6" visible="false">
+         <image>
+            <Image url="@capstone/arrow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="tutNext" layoutX="467.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#goForwardTut" text="next" />
    </children>
 </AnchorPane>

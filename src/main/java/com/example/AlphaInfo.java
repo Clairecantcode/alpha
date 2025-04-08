@@ -27,6 +27,7 @@ public class AlphaInfo {
         try {
             App.setRoot("gameScreen");
         } catch (Exception e) {
+            System.out.println(e);
 
         }
     }
