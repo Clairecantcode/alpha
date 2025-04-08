@@ -44,7 +44,7 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="thumbsUpGuy" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7">
+      <ImageView fx:id="thumbsUpGuy" fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" rotate="-33.7" visible="false">
          <image>
             <Image url="@capstone/thumbs%20up.png" />
          </image>
@@ -146,5 +146,11 @@
          </image>
       </ImageView>
       <Button fx:id="tutNext" layoutX="467.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#goForwardTut" text="next" />
+      <ImageView fx:id="popUpSqaure" fitHeight="222.0" fitWidth="383.0" layoutX="107.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@capstone/square.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="popUpText" layoutX="288.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

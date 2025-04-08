@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 
 
 public class GameScreen {
+    
     @FXML
     private Text points;
     @FXML
@@ -84,6 +85,13 @@ public class GameScreen {
     @FXML
     private ImageView wolf3;
 
+
+    int tutoritalStage;
+    int fStat;
+    int wStat;
+    int hStat;
+    int sStat;
+
     @FXML
     public void initialize() {
         // This method runs automatically when the scene loads
@@ -98,19 +106,24 @@ public class GameScreen {
         img = new Image(getClass().getResourceAsStream("yellow3.png"));
         warmthBar.setImage(img);
 
-        foodStat.setText("3/5");
-        waterStat.setText("3/5");
-        healthStat.setText("3/5");
-        warmthStat.setText("3/5");
+        fStat=3;
+        wStat=3;
+        hStat=3;
+        sStat=3;
 
-        int tutoritalStage = 0;
+        foodStat.setText(fStat+"/5");
+        waterStat.setText(wStat+"/5");
+        healthStat.setText(hStat+"/5");
+        warmthStat.setText(sStat+"/5");
+
+        tutoritalStage = 0;
         squareForFeedback.setVisible(true);
         feedbackText.setText("This is the tutorial! \n Hit next to start the tutorial!");
         }
 
     @FXML
     void chooseFood(MouseEvent event) {
-        
+        fStat++;
     }
 
     @FXML
@@ -129,7 +142,31 @@ public class GameScreen {
     }
     @FXML
     void goForwardTut(MouseEvent event) {
-
+        tutoritalStage++;
+        if(tutoritalStage ==1){
+            statsArrow.setVisible(true);
+            feedbackText.setText("These are your stats! \n If any of these stats \n hits 0 you loose the game :( \n green=food blue=water \n red=health yellow=warmth");
+        }
+        else if(tutoritalStage==2){
+            statsArrow.setVisible(false);
+            choicesArrow.setVisible(true);
+            feedbackText.setText("These are your choices \n for every life stage! \n each choice adds 1 to the \n cordinating stat!");
+        }
+        else if(tutoritalStage==3){
+            choicesArrow.setVisible(false);
+            pointsArrow.setVisible(true);
+            feedbackText.setText("These are the points you \n get per year! \n Every choice costs 1 point \n and ups a stat by 1");
+        }
+        else if(tutoritalStage==4){
+            pointsArrow.setVisible(false);
+            feedbackText.setText("There will also be life altering events in every stage after you use all your points! \n Watch out! They could cost you lots of points! \n Good luck :D");
+            tutNext.setText("end tutorial");
+        }
+        else{
+            feedbackText.setVisible(false);
+            squareForFeedback.setVisible(false);
+            tutNext.setVisible(false);
+        }
     }
 
 
