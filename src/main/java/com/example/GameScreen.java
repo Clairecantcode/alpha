@@ -104,7 +104,7 @@ public class GameScreen {
     private ImageView wolf3;
     Image img;
 
-
+    int ageUpStage;
     int tutoritalStage;
     int fStat;
     int wStat;
@@ -113,6 +113,7 @@ public class GameScreen {
     int pointys;
     int eventNum;
     int ageStage;
+    int optionPicked;
 
     @FXML
     public void initialize() {
@@ -135,6 +136,7 @@ public class GameScreen {
         pointys=5;
         ageStage=1;
         eventNum=0;
+        ageStage=1;
 
         foodStat.setText(fStat+"/5");
         waterStat.setText(wStat+"/5");
@@ -280,22 +282,30 @@ public class GameScreen {
         }
         //this is all for the big events
         if(eventNum==1){
-            int ageUpStage=1;
             String changeImageTo ="teenwolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
             ageUpStage++;
+            feedbackText.setText("You aged up! \n You are now a teen \n and your points have refilled!");
+            pointys=5;
+            points.setText("Points Available For Year:" +pointys+"/5");
+            wStat-=2;
+            fStat-=2;
+            sStat-=2;
+            hStat-=2;
+            waterStat.setText(wStat+"/5");
+            changeImageTo =("blue"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            waterBar.setImage(img);
+            
             if(ageUpStage==2){
-                
-                feedbackText.setText("You aged up! \n You are now a teen!");
-                ageUpStage=3;
-                System.out.println(ageUpStage);
-            }
-            else if (ageUpStage==3){
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 bottle.setVisible(false);
+                tutNext.setVisible(false);
+                thumbsUpGuy.setVisible(false);
             }
+        
             
         }
         else if(eventNum==2){
@@ -351,6 +361,7 @@ public class GameScreen {
     }
     @FXML
     void option1Picked(MouseEvent event) {
+        optionPicked=1;
         if(eventNum==1){
             bottle.setVisible(true);
             option1Box.setVisible(false);
@@ -390,6 +401,7 @@ public class GameScreen {
 
     @FXML
     void option2Picked(MouseEvent event) {
+    
         if(eventNum==1){
             
         }
