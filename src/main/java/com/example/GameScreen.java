@@ -289,27 +289,82 @@ public class GameScreen {
             feedbackText.setText("You aged up! \n You are now a teen \n and your points have refilled!");
             pointys=5;
             points.setText("Points Available For Year:" +pointys+"/5");
-            wStat-=2;
-            fStat-=2;
-            sStat-=2;
-            hStat-=2;
-            waterStat.setText(wStat+"/5");
-            changeImageTo =("blue"+wStat+".png");
-            img = new Image(getClass().getResourceAsStream(changeImageTo));
-            waterBar.setImage(img);
             
             if(ageUpStage==2){
+                wStat-=2;
+                fStat-=2;
+                sStat-=2;
+                hStat-=2;
+
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 bottle.setVisible(false);
                 tutNext.setVisible(false);
                 thumbsUpGuy.setVisible(false);
+                bear.setVisible(false);
+                ageUpStage=-67;
+
+            waterStat.setText(wStat+"/5");
+            foodStat.setText(fStat+"/5");
+            healthStat.setText(hStat+"/5");
+            warmthStat.setText(sStat+"/5");
+            
+            changeImageTo =("blue"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            waterBar.setImage(img);
+            changeImageTo =("green"+fStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            foodBar.setImage(img);
+            changeImageTo =("red"+hStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            healthBar.setImage(img);
+            changeImageTo =("yellow"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            warmthBar.setImage(img);
             }
         
             
         }
         else if(eventNum==2){
+            String changeImageTo ="yawolf.png";
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            wolfPic.setImage(img);
+            ageUpStage++;
+            feedbackText.setText("You aged up! \n You are now a young adult\n and your points have refilled!");
+            pointys=5;
+            points.setText("Points Available For Year:" +pointys+"/5");
+            if(ageUpStage==2){
+                wStat-=2;
+                fStat-=2;
+                sStat-=2;
+                hStat-=2;
 
+                feedbackText.setVisible(false);
+                squareForFeedback.setVisible(false);
+                bottle.setVisible(false);
+                tutNext.setVisible(false);
+                thumbsUpGuy.setVisible(false);
+                bear.setVisible(false);
+                ageUpStage=-67;
+
+            waterStat.setText(wStat+"/5");
+            foodStat.setText(fStat+"/5");
+            healthStat.setText(hStat+"/5");
+            warmthStat.setText(sStat+"/5");
+            
+            changeImageTo =("blue"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            waterBar.setImage(img);
+            changeImageTo =("green"+fStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            foodBar.setImage(img);
+            changeImageTo =("red"+hStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            healthBar.setImage(img);
+            changeImageTo =("yellow"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            warmthBar.setImage(img);
+         }
         }
         else if(eventNum==3){
 
@@ -349,7 +404,15 @@ public class GameScreen {
 
         }
         else if(eventNum==2){
+            thunder.setVisible(true);
+            okayButt.setText("proceed");
+            okayButt.setVisible(true);
+            popUpSqaure.setVisible(true);
+            popUpText.setVisible(true);
+            popUpText.setText("Oh no! \n A thunderstorm! \n What will you do?");
 
+            option1Text.setText("Hide in your shelter");
+            option2Text.setText("Hide in the wild");
         }
         else if(eventNum==3){
 
@@ -362,6 +425,10 @@ public class GameScreen {
     @FXML
     void option1Picked(MouseEvent event) {
         optionPicked=1;
+        String changeImageTo =("thumbsup.png");
+        img = new Image(getClass().getResourceAsStream(changeImageTo));
+        thumbsUpGuy.setImage(img);
+        
         if(eventNum==1){
             bottle.setVisible(true);
             option1Box.setVisible(false);
@@ -373,10 +440,11 @@ public class GameScreen {
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
 
-            fStat-=2;
-            wStat-=2;
+            wStat-=1;
+            fStat-=1;
 
-            String changeImageTo =("blue"+wStat+".png");
+
+            changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             waterBar.setImage(img);
 
@@ -387,8 +455,27 @@ public class GameScreen {
             feedbackText.setText("You lost food and water but \n you found a bottle! \n In the wild animals are very \n territorial. It is always \n best to not spread your \n scent if possible! \n Good choice!");
             tutNext.setText("Complete");
 
+            foodStat.setText(fStat+"/5");
+            waterStat.setText(wStat+"/5");
+
         }
         else if(eventNum==2){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(true);
+            feedbackText.setVisible(true);
+            thumbsUpGuy.setVisible(true);
+            tutNext.setVisible(true);
+
+            wStat-=3;
+            changeImageTo =("yellow"+wStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            warmthBar.setImage(img);
+
+            feedbackText.setText("You lost your shelter \n but survived the storm! \n In the wild shelter may not always be \n the best option if it is not sturdy.\n Good choice!");
+            tutNext.setText("Complete");
 
         }
         else if(eventNum==3){
@@ -403,7 +490,28 @@ public class GameScreen {
     void option2Picked(MouseEvent event) {
     
         if(eventNum==1){
-            
+            bear.setVisible(true);
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(true);
+            feedbackText.setVisible(true);
+            thumbsUpGuy.setVisible(true);
+            tutNext.setVisible(true);
+
+            feedbackText.setText("Oh no! A bear smelt your pee and attacked! \n In the wild animals are very \n territorial. It is always \n best to not spread your \\n scent if possible! \\n Minus 3 health!");
+            tutNext.setText("Complete");
+
+            String changeImageTo =("badman.png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            thumbsUpGuy.setImage(img);
+
+            hStat-=4;
+            changeImageTo =("red"+hStat+".png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            healthBar.setImage(img);
+
         }
         else if(eventNum==2){
 
