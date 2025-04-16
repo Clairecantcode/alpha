@@ -321,11 +321,14 @@ public class GameScreen {
             changeImageTo =("yellow"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+
+            ageStage=0;
             }
         
             
         }
         else if(eventNum==2){
+            System.out.println(ageUpStage);
             String changeImageTo ="yawolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
@@ -470,9 +473,14 @@ public class GameScreen {
             tutNext.setVisible(true);
 
             wStat-=3;
+            if(wStat<1) {
+                wStat = 1;
+            }
             changeImageTo =("yellow"+wStat+".png");
+            System.out.println(changeImageTo);
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+            warmthStat.setText(sStat+"/5");
 
             feedbackText.setText("You lost your shelter \n but survived the storm! \n In the wild shelter may not always be \n the best option if it is not sturdy.\n Good choice!");
             tutNext.setText("Complete");
@@ -488,6 +496,9 @@ public class GameScreen {
 
     @FXML
     void option2Picked(MouseEvent event) {
+        String changeImageTo =("badman.png");
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            thumbsUpGuy.setImage(img);
     
         if(eventNum==1){
             bear.setVisible(true);
@@ -502,10 +513,6 @@ public class GameScreen {
 
             feedbackText.setText("Oh no! A bear smelt your pee and attacked! \n In the wild animals are very \n territorial. It is always \n best to not spread your \\n scent if possible! \\n Minus 3 health!");
             tutNext.setText("Complete");
-
-            String changeImageTo =("badman.png");
-            img = new Image(getClass().getResourceAsStream(changeImageTo));
-            thumbsUpGuy.setImage(img);
 
             hStat-=4;
             changeImageTo =("red"+hStat+".png");
