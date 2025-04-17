@@ -348,7 +348,7 @@ public class GameScreen {
                 tutNext.setVisible(false);
                 thumbsUpGuy.setVisible(false);
                 bear.setVisible(false);
-                ageUpStage=-67;
+                
 
             waterStat.setText(wStat+"/5");
             foodStat.setText(fStat+"/5");
