@@ -54,7 +54,7 @@
             <Image url="@capstone/square.png" />
          </image>
       </ImageView>
-      <Text fx:id="feedbackText" layoutX="415.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="158.0" />
+      <Text fx:id="feedbackText" layoutX="419.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="158.0" />
       <VBox layoutX="7.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="100.0">
@@ -124,7 +124,7 @@
             <Image url="@capstone/wolf2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wolf3" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="wolf3" fitHeight="150.0" fitWidth="200.0" layoutX="337.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@capstone/wolf3.png" />
          </image>
@@ -145,7 +145,7 @@
             <Image url="@capstone/arrow.png" />
          </image>
       </ImageView>
-      <Button fx:id="tutNext" layoutX="467.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#goForwardTut" text="next" />
+      <Button fx:id="tutNext" layoutX="482.0" layoutY="266.0" mnemonicParsing="false" onMouseClicked="#goForwardTut" text="next" />
       <ImageView fx:id="popUpSqaure" fitHeight="222.0" fitWidth="383.0" layoutX="107.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@capstone/square.png" />

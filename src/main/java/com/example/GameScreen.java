@@ -114,6 +114,7 @@ public class GameScreen {
     int eventNum;
     int ageStage;
     int optionPicked;
+    boolean isDead;
 
     @FXML
     public void initialize() {
@@ -137,6 +138,7 @@ public class GameScreen {
         ageStage=1;
         eventNum=0;
         ageStage=1;
+        isDead=false;
 
         foodStat.setText(fStat+"/5");
         waterStat.setText(wStat+"/5");
@@ -292,10 +294,12 @@ public class GameScreen {
             points.setText("Points Available For Year:" +pointys+"/5");
             
             if(ageUpStage==2){
-                wStat-=2;
-                fStat-=2;
-                sStat-=2;
-                hStat-=2;
+                wStat-=1;
+                fStat-=1;
+                sStat-=1;
+                hStat-=1;
+
+                didYouDie();
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -338,10 +342,11 @@ public class GameScreen {
             pointys=5;
             points.setText("Points Available For Year:" +pointys+"/5");
             if(ageUpStage==4){
-                wStat-=2;
-                fStat-=2;
-                sStat-=2;
-                hStat-=2;
+                wStat-=1;
+                fStat-=1;
+                sStat-=1;
+                hStat-=1;
+                didYouDie();
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -378,11 +383,13 @@ public class GameScreen {
             pointys=5;
             points.setText("Points Available For Year:" +pointys+"/5");
         
-            if(ageUpStage==4){
-                wStat-=2;
-                fStat-=2;
-                sStat-=2;
-                hStat-=2;
+            if(ageUpStage==6){
+                wStat-=1;
+                fStat-=1;
+                sStat-=1;
+                hStat-=1;
+
+                didYouDie();
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -410,7 +417,17 @@ public class GameScreen {
 
         }
         else if(eventNum==4){
-
+            System.out.println(ageUpStage);
+            String changeImageTo ="alphawolf.png";
+            img = new Image(getClass().getResourceAsStream(changeImageTo));
+            wolfPic.setImage(img);
+            ageUpStage++;
+            feedbackText.setText("You aged up! \n You are now ALPHA \n You won!");
+        
+            if(ageUpStage==8){
+              System.exit(0);
+            }
+           
         }
 
     }
@@ -421,6 +438,10 @@ public class GameScreen {
         popUpText.setVisible(false);
         okayButt.setVisible(false);
 
+        if(isDead==true){
+            System.exit(0);
+        }
+
         String whatButtonSays = okayButt.getText();
         if(whatButtonSays.equals("proceed")){
             option1Box.setVisible(true);
@@ -428,6 +449,7 @@ public class GameScreen {
             option2Box.setVisible(true);
             option2Text.setVisible(true);
         }
+
     }
 
     public void bigEvent(){
@@ -501,6 +523,8 @@ public class GameScreen {
             wStat-=1;
             fStat-=1;
 
+            didYouDie();
+
 
             changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -528,6 +552,7 @@ public class GameScreen {
             tutNext.setVisible(true);
 
             sStat-=3;
+            didYouDie();
             changeImageTo =("yellow"+sStat+".png");
             System.out.println(changeImageTo);
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -550,13 +575,7 @@ public class GameScreen {
 
             sStat-=2;
             fStat-=2;
-
-            if(fStat<=0){
-                fStat=1;
-            }
-            if(sStat<=0){
-                sStat=1;
-            }
+            didYouDie();
 
             changeImageTo =("yellow"+sStat+".png");
             System.out.println(changeImageTo);
@@ -574,7 +593,17 @@ public class GameScreen {
 
         }
         else if(eventNum==4){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(true);
+            feedbackText.setVisible(true);
+            thumbsUpGuy.setVisible(true);
+            tutNext.setVisible(true);
 
+            feedbackText.setText("You have become THE alpha! \n This event is just for fun \n please do not try to befriend wild \n animals");
+            tutNext.setText("Complete");
         }
     }
 
@@ -599,6 +628,7 @@ public class GameScreen {
             tutNext.setText("Complete");
 
             hStat-=4;
+            didYouDie();
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
@@ -618,9 +648,11 @@ public class GameScreen {
             tutNext.setVisible(true);
 
             feedbackText.setText("Oh no! Your shelter fell on you breaking your leg! \n In the wild shelter may not always be \n the best option if it is not sturdy. \n Minus 3 health and shelter");
+            tutNext.setText("Complete");
 
             hStat-=3;
             sStat-=3;
+            didYouDie();
 
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -646,6 +678,8 @@ public class GameScreen {
 
             feedbackText.setText("The bear killed you! \n Never think you are stronger than wild animals, \n it will not end well :(");
             hStat-=5;
+            didYouDie();
+            tutNext.setText("Complete");
 
 
             changeImageTo =("red"+hStat+".png");
@@ -656,10 +690,47 @@ public class GameScreen {
 
         }
         else if(eventNum==4){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(true);
+            feedbackText.setVisible(true);
+            thumbsUpGuy.setVisible(true);
+            tutNext.setVisible(true);
 
+            feedbackText.setText("NEVER fight animals \n you will die! \n also dont befriend them but thats besides the point...");
+            tutNext.setText("Complete");
         }
     }
 
+    public void didYouDie(){
+        isDead=true;
+        option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(false);
+            feedbackText.setVisible(false);
+            thumbsUpGuy.setVisible(false);
+            tutNext.setVisible(false);
+            popUpSqaure.setVisible(true);
+            popUpText.setVisible(true);
+            okayButt.setVisible(true);
+        if(hStat<=0){
+            popUpText.setText("You got too injured and died! \n Make sure to heal in the wild!");
+        }
+        else if(sStat<=0){
+            popUpText.setText("You got too cold and froze! \n Make sure to keep up your body temp!");
+        }
+        else if(wStat<=0){
+            popUpText.setText("You dehydrated to death! \n Water is the most important resource \n in the wild!");
+        }
+        else if(fStat<=0){
+            popUpText.setText("You starved to death! \n Food is the second most important resource \n in the wild!");
+        }
+        
+    }
 
 }
 
