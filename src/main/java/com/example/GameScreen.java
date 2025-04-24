@@ -298,8 +298,8 @@ public class GameScreen {
                 fStat-=1;
                 sStat-=1;
                 hStat-=1;
-
                 didYouDie();
+            
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -314,6 +314,7 @@ public class GameScreen {
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
             
+            
             changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             waterBar.setImage(img);
@@ -326,6 +327,8 @@ public class GameScreen {
             changeImageTo =("yellow"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+
+            
 
             ageStage=0;
             }
@@ -347,6 +350,7 @@ public class GameScreen {
                 sStat-=1;
                 hStat-=1;
                 didYouDie();
+                
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -371,6 +375,7 @@ public class GameScreen {
             changeImageTo =("yellow"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+            
          }
         }
         else if(eventNum==3){
@@ -388,8 +393,9 @@ public class GameScreen {
                 fStat-=1;
                 sStat-=1;
                 hStat-=1;
-
                 didYouDie();
+
+                
 
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
@@ -401,6 +407,7 @@ public class GameScreen {
             foodStat.setText(fStat+"/5");
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
+
                 
             changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -414,6 +421,7 @@ public class GameScreen {
             changeImageTo =("yellow"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+            
 
         }
         else if(eventNum==4){
@@ -527,12 +535,14 @@ public class GameScreen {
 
 
             changeImageTo =("blue"+wStat+".png");
+            System.out.println(changeImageTo);
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             waterBar.setImage(img);
 
             changeImageTo =("green"+fStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             foodBar.setImage(img);
+            
 
             feedbackText.setText("You lost food and water but \n you found a bottle! \n In the wild animals are very \n territorial. It is always \n best to not spread your \n scent if possible! \n Good choice!");
             tutNext.setText("Complete");
@@ -553,11 +563,13 @@ public class GameScreen {
 
             sStat-=3;
             didYouDie();
+            
             changeImageTo =("yellow"+sStat+".png");
             System.out.println(changeImageTo);
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
             warmthStat.setText(sStat+"/5");
+            
 
             feedbackText.setText("You lost your shelter \n but survived the storm! \n In the wild shelter may not always be \n the best option if it is not sturdy.\n Good choice!");
             tutNext.setText("Complete");
@@ -587,6 +599,7 @@ public class GameScreen {
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             foodBar.setImage(img);
             foodStat.setText(fStat+"/5");
+            
 
             feedbackText.setText("The bear took your food and destoryed your shelter! \n In the wild never try to fight agianst animals, \n its better to be cold and alive than dead! \n Good choice!");
             tutNext.setText("Complete");
@@ -635,6 +648,7 @@ public class GameScreen {
 
             healthStat.setText(hStat+"/5");
             
+            
 
         }
         else if(eventNum==2){
@@ -653,6 +667,7 @@ public class GameScreen {
             hStat-=3;
             sStat-=3;
             didYouDie();
+            
 
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -664,6 +679,7 @@ public class GameScreen {
 
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
+            
 
         }
         else if(eventNum==3){
@@ -678,8 +694,8 @@ public class GameScreen {
 
             feedbackText.setText("The bear killed you! \n Never think you are stronger than wild animals, \n it will not end well :(");
             hStat-=5;
-            didYouDie();
             tutNext.setText("Complete");
+            didYouDie();
 
 
             changeImageTo =("red"+hStat+".png");
@@ -687,6 +703,7 @@ public class GameScreen {
             healthBar.setImage(img);
 
             healthStat.setText(hStat+"/5");
+            
 
         }
         else if(eventNum==4){
@@ -705,8 +722,9 @@ public class GameScreen {
     }
 
     public void didYouDie(){
-        isDead=true;
-        option1Box.setVisible(false);
+        if(hStat<=0){
+            isDead=true;
+            option1Box.setVisible(false);
             option1Text.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
@@ -717,17 +735,54 @@ public class GameScreen {
             popUpSqaure.setVisible(true);
             popUpText.setVisible(true);
             okayButt.setVisible(true);
-        if(hStat<=0){
             popUpText.setText("You got too injured and died! \n Make sure to heal in the wild!");
         }
         else if(sStat<=0){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(false);
+            feedbackText.setVisible(false);
+            thumbsUpGuy.setVisible(false);
+            tutNext.setVisible(false);
+            popUpSqaure.setVisible(true);
+            popUpText.setVisible(true);
+            okayButt.setVisible(true);
+            isDead=true;
             popUpText.setText("You got too cold and froze! \n Make sure to keep up your body temp!");
         }
         else if(wStat<=0){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(false);
+            feedbackText.setVisible(false);
+            thumbsUpGuy.setVisible(false);
+            tutNext.setVisible(false);
+            popUpSqaure.setVisible(true);
+            popUpText.setVisible(true);
+            okayButt.setVisible(true);
+            isDead=true;
             popUpText.setText("You dehydrated to death! \n Water is the most important resource \n in the wild!");
         }
         else if(fStat<=0){
+            option1Box.setVisible(false);
+            option1Text.setVisible(false);
+            option2Box.setVisible(false);
+            option2Text.setVisible(false);
+            squareForFeedback.setVisible(false);
+            feedbackText.setVisible(false);
+            thumbsUpGuy.setVisible(false);
+            tutNext.setVisible(false);
+            popUpSqaure.setVisible(true);
+            popUpText.setVisible(true);
+            okayButt.setVisible(true);
+            isDead=true;
             popUpText.setText("You starved to death! \n Food is the second most important resource \n in the wild!");
+        } else {
+            System.out.println("I am alive!");
         }
         
     }
