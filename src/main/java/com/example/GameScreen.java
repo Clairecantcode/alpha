@@ -3,6 +3,7 @@ package com.example;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -12,6 +13,12 @@ import javafx.scene.image.Image;
 public class GameScreen {
     @FXML
     private ImageView option1Box;
+
+    @FXML
+    private HBox hBoxOption1;
+
+    @FXML
+    private HBox HBoxOption2;
 
     @FXML
     private Text option1Text;
@@ -454,8 +461,10 @@ public class GameScreen {
         if(whatButtonSays.equals("proceed")){
             option1Box.setVisible(true);
             option1Text.setVisible(true);
+            hBoxOption1.setVisible(true);
             option2Box.setVisible(true);
             option2Text.setVisible(true);
+            HBoxOption2.setVisible(true);
         }
 
     }
@@ -521,8 +530,10 @@ public class GameScreen {
             bottle.setVisible(true);
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -554,8 +565,10 @@ public class GameScreen {
         else if(eventNum==2){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -578,8 +591,10 @@ public class GameScreen {
         else if(eventNum==3){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -608,8 +623,10 @@ public class GameScreen {
         else if(eventNum==4){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -630,8 +647,10 @@ public class GameScreen {
             bear.setVisible(true);
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -654,8 +673,10 @@ public class GameScreen {
         else if(eventNum==2){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -685,8 +706,10 @@ public class GameScreen {
         else if(eventNum==3){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -709,8 +732,10 @@ public class GameScreen {
         else if(eventNum==4){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(true);
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
@@ -726,8 +751,10 @@ public class GameScreen {
             isDead=true;
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(false);
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
@@ -740,8 +767,10 @@ public class GameScreen {
         else if(sStat<=0){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(false);
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
@@ -755,8 +784,10 @@ public class GameScreen {
         else if(wStat<=0){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(false);
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
@@ -770,8 +801,10 @@ public class GameScreen {
         else if(fStat<=0){
             option1Box.setVisible(false);
             option1Text.setVisible(false);
+            hBoxOption1.setVisible(false);
             option2Box.setVisible(false);
             option2Text.setVisible(false);
+            HBoxOption2.setVisible(false);
             squareForFeedback.setVisible(false);
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);

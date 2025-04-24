@@ -163,7 +163,15 @@
             <Image url="@capstone/square.png" />
          </image>
       </ImageView>
-      <Text fx:id="option1Text" layoutX="168.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" />
-      <Text fx:id="option2Text" layoutX="432.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
+      <HBox fx:id="hBoxOption1" alignment="CENTER" layoutX="80.0" layoutY="263.0" prefHeight="100.0" prefWidth="200.0" visible="false">
+         <children>
+            <Text fx:id="option1Text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" />
+         </children>
+      </HBox>
+      <HBox fx:id="HBoxOption2" alignment="CENTER" layoutX="344.0" layoutY="266.0" prefHeight="100.0" prefWidth="200.0" visible="false">
+         <children>
+            <Text fx:id="option2Text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
