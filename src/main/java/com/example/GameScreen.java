@@ -91,6 +91,8 @@ public class GameScreen {
 
     @FXML
     private ImageView warmthBar;
+    @FXML
+    private HBox tutButtHBox;
 
     @FXML
     private Text warmthStat;
@@ -288,6 +290,7 @@ public class GameScreen {
             feedbackText.setVisible(false);
             squareForFeedback.setVisible(false);
             tutNext.setVisible(false);
+            tutButtHBox.setVisible(false);
         }
         //this is all for the big events
         if(eventNum==1){
@@ -312,6 +315,7 @@ public class GameScreen {
                 squareForFeedback.setVisible(false);
                 bottle.setVisible(false);
                 tutNext.setVisible(false);
+                tutButtHBox.setVisible(false);
                 thumbsUpGuy.setVisible(false);
                 bear.setVisible(false);
                 
@@ -362,6 +366,7 @@ public class GameScreen {
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 tutNext.setVisible(false);
+                tutButtHBox.setVisible(false);
                 thumbsUpGuy.setVisible(false);   
                 thunder.setVisible(false);
 
@@ -407,6 +412,7 @@ public class GameScreen {
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 tutNext.setVisible(false);
+                tutButtHBox.setVisible(false);
                 thumbsUpGuy.setVisible(false);
                 bear.setVisible(false);
             }
@@ -512,9 +518,9 @@ public class GameScreen {
             popUpText.setVisible(true);
             wolf2.setVisible(true);
             wolf3.setVisible(true);
-            popUpText.setText("Some wolves are threatening you, but if you choose correctly you can become their ALPHAAAAA!");
+            popUpText.setText("Some wolves are threatening you, \n but if you choose correctly \n you can become their ALPHAAAAA!");
 
-            option1Text.setText("Show them how much of a boss you are");
+            option1Text.setText("Show them how much of \n a boss you are");
             option2Text.setText("Pee on them");
         }
 
@@ -538,6 +544,7 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             wStat-=1;
             fStat-=1;
@@ -573,6 +580,7 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             sStat-=3;
             didYouDie();
@@ -599,8 +607,9 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
-            sStat-=2;
+            sStat-=1;
             fStat-=2;
             didYouDie();
 
@@ -631,6 +640,7 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             feedbackText.setText("You have become THE alpha! \n This event is just for fun \n please do not try to befriend wild \n animals");
             tutNext.setText("Complete");
@@ -655,17 +665,19 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
-            feedbackText.setText("Oh no! A bear smelt your pee and attacked! \n In the wild animals are very \n territorial. It is always \n best to not spread your \\n scent if possible! \\n Minus 3 health!");
+            feedbackText.setText("Oh no! A bear smelt your pee and attacked! \n In the wild animals are very \n territorial. It is always \n best to not spread your \n scent if possible! \n Minus 3 health!");
             tutNext.setText("Complete");
 
             hStat-=4;
-            didYouDie();
+            if(hStat>0){
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
 
             healthStat.setText(hStat+"/5");
+            }
             
             
 
@@ -681,15 +693,16 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             feedbackText.setText("Oh no! Your shelter fell on you breaking your leg! \n In the wild shelter may not always be \n the best option if it is not sturdy. \n Minus 3 health and shelter");
             tutNext.setText("Complete");
 
             hStat-=3;
             sStat-=3;
-            didYouDie();
             
-
+            
+            if(hStat>0 && sStat>0){
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
@@ -697,9 +710,11 @@ public class GameScreen {
             changeImageTo =("yellow"+sStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
+            }
 
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
+            
             
 
         }
@@ -714,16 +729,17 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             feedbackText.setText("The bear killed you! \n Never think you are stronger than wild animals, \n it will not end well :(");
             hStat-=5;
             tutNext.setText("Complete");
-            didYouDie();
 
-
+            if(hStat>0){
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
+            }
 
             healthStat.setText(hStat+"/5");
             
@@ -740,6 +756,7 @@ public class GameScreen {
             feedbackText.setVisible(true);
             thumbsUpGuy.setVisible(true);
             tutNext.setVisible(true);
+            tutButtHBox.setVisible(true);
 
             feedbackText.setText("NEVER fight animals \n you will die! \n also dont befriend them but thats besides the point...");
             tutNext.setText("Complete");
@@ -759,6 +776,7 @@ public class GameScreen {
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
             tutNext.setVisible(false);
+            tutButtHBox.setVisible(false);
             popUpSqaure.setVisible(true);
             popUpText.setVisible(true);
             okayButt.setVisible(true);
@@ -775,6 +793,7 @@ public class GameScreen {
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
             tutNext.setVisible(false);
+            tutButtHBox.setVisible(false);
             popUpSqaure.setVisible(true);
             popUpText.setVisible(true);
             okayButt.setVisible(true);
@@ -792,6 +811,7 @@ public class GameScreen {
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
             tutNext.setVisible(false);
+            tutButtHBox.setVisible(false);
             popUpSqaure.setVisible(true);
             popUpText.setVisible(true);
             okayButt.setVisible(true);
@@ -809,6 +829,7 @@ public class GameScreen {
             feedbackText.setVisible(false);
             thumbsUpGuy.setVisible(false);
             tutNext.setVisible(false);
+            tutButtHBox.setVisible(false);
             popUpSqaure.setVisible(true);
             popUpText.setVisible(true);
             okayButt.setVisible(true);
