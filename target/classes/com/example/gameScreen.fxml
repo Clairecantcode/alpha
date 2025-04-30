@@ -124,7 +124,7 @@
             <Image url="@capstone/wolf2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wolf3" fitHeight="150.0" fitWidth="200.0" layoutX="337.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="wolf3" fitHeight="150.0" fitWidth="200.0" layoutX="108.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@capstone/wolf3.png" />
          </image>
@@ -190,5 +190,10 @@
             </Button>
          </children>
       </VBox>
+      <ImageView fx:id="hamster" fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@hamster-dance.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

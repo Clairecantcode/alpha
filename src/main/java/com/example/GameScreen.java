@@ -7,6 +7,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 
@@ -93,6 +97,8 @@ public class GameScreen {
     private ImageView warmthBar;
     @FXML
     private HBox tutButtHBox;
+    @FXML
+    private ImageView hamster;
 
     @FXML
     private Text warmthStat;
@@ -124,6 +130,7 @@ public class GameScreen {
     int ageStage;
     int optionPicked;
     boolean isDead;
+    String playerName;
 
     @FXML
     public void initialize() {
@@ -138,6 +145,13 @@ public class GameScreen {
         healthBar.setImage(img);
         img = new Image(getClass().getResourceAsStream("yellow3.png"));
         warmthBar.setImage(img);
+
+        playerName= Data.name;
+
+        if(playerName.equals("Tyler") || playerName.equals("tyler")){
+            img = new Image(getClass().getResourceAsStream("tylerCub.png"));
+            wolfPic.setImage(img);
+        }
 
         fStat=3;
         wStat=3;
@@ -179,6 +193,7 @@ public class GameScreen {
         }
         String changeImageTo =("green"+fStat+".png");
         System.out.println(changeImageTo);
+        System.out.println(fStat);
         img = new Image(getClass().getResourceAsStream(changeImageTo));
         foodBar.setImage(img);
         foodStat.setText(fStat+"/5");
@@ -207,6 +222,7 @@ public class GameScreen {
         points.setText("Points Available For Year:" +pointys+"/5");
         String changeImageTo =("red"+hStat+".png");
         System.out.println(changeImageTo);
+        System.out.println(hStat);
         img = new Image(getClass().getResourceAsStream(changeImageTo));
         healthBar.setImage(img);
     }
@@ -233,6 +249,7 @@ public class GameScreen {
         points.setText("Points Available For Year:" +pointys+"/5");
         String changeImageTo =("yellow"+sStat+".png");
         System.out.println(changeImageTo);
+        System.out.println(sStat);
         img = new Image(getClass().getResourceAsStream(changeImageTo));
         warmthBar.setImage(img);
     }
@@ -259,6 +276,7 @@ public class GameScreen {
         points.setText("Points Available For Year:" +pointys+"/5");
         String changeImageTo =("blue"+wStat+".png");
         System.out.println(changeImageTo);
+        System.out.println(wStat);
         img = new Image(getClass().getResourceAsStream(changeImageTo));
         waterBar.setImage(img);
     }
@@ -298,6 +316,10 @@ public class GameScreen {
             String changeImageTo ="teenwolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
+            if(playerName.equals("Tyler") || playerName.equals("tyler")){
+                img = new Image(getClass().getResourceAsStream("tylerTeen.png"));
+                wolfPic.setImage(img);
+            }
             ageUpStage++;
             feedbackText.setText("You aged up! \n You are now a teen \n and your points have refilled!");
             pointys=5;
@@ -329,18 +351,23 @@ public class GameScreen {
             changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             waterBar.setImage(img);
+            System.out.println(wStat);
+            System.out.println(changeImageTo);
             changeImageTo =("green"+fStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             foodBar.setImage(img);
+            System.out.println(changeImageTo);
+            System.out.println(fStat);
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
-            changeImageTo =("yellow"+wStat+".png");
+            System.out.println(changeImageTo);
+            System.out.println(hStat);
+            changeImageTo =("yellow"+sStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
-
-            
-
+            System.out.println(changeImageTo);
+            System.out.println(sStat);
             ageStage=0;
             }
         
@@ -351,6 +378,10 @@ public class GameScreen {
             String changeImageTo ="yawolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
+            if(playerName.equals("Tyler") || playerName.equals("tyler")){
+                img = new Image(getClass().getResourceAsStream("tylerYA.png"));
+                wolfPic.setImage(img);
+            }
             ageUpStage++;
             feedbackText.setText("You aged up! \n You are now a young adult\n and your points have refilled!");
             pointys=5;
@@ -384,7 +415,7 @@ public class GameScreen {
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
-            changeImageTo =("yellow"+wStat+".png");
+            changeImageTo =("yellow"+sStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
             
@@ -395,6 +426,10 @@ public class GameScreen {
             String changeImageTo ="awolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
+            if(playerName.equals("Tyler") || playerName.equals("tyler")){
+                img = new Image(getClass().getResourceAsStream("tylerA.png"));
+                wolfPic.setImage(img);
+            }
             ageUpStage++;
             feedbackText.setText("You aged up! \n You are now a young adult\n and your points have refilled!");
             pointys=5;
@@ -431,26 +466,47 @@ public class GameScreen {
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
-            changeImageTo =("yellow"+wStat+".png");
+            changeImageTo =("yellow"+sStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
             
 
         }
         else if(eventNum==4){
+            hamster.setVisible(true);
+
             System.out.println(ageUpStage);
             String changeImageTo ="alphawolf.png";
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             wolfPic.setImage(img);
+            if(playerName.equals("Tyler") || playerName.equals("tyler")){
+                img = new Image(getClass().getResourceAsStream("tylerAlpha.png"));
+                wolfPic.setImage(img);
+            }
             ageUpStage++;
             feedbackText.setText("You aged up! \n You are now ALPHA \n You won!");
         
             if(ageUpStage==8){
-              System.exit(0);
+                feedbackText.setVisible(false);
+                squareForFeedback.setVisible(false);
+                foodButt.setVisible(false);
+                waterButt.setVisible(false);
+                healthButt.setVisible(false);
+                shelterButt.setVisible(false);
+                thumbsUpGuy.setVisible(false);
+                tutNext.setVisible(false);
+                PauseTransition delay = new PauseTransition(Duration.seconds(5));
+                delay.setOnFinished(event2 ->  System.exit(0));
+                delay.play();
             }
            
         }
 
+    }
+    public void closeAfterDelay(Stage stage) {
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished(event -> stage.close());
+        delay.play();
     }
 
     @FXML
@@ -816,7 +872,7 @@ public class GameScreen {
             popUpText.setVisible(true);
             okayButt.setVisible(true);
             isDead=true;
-            popUpText.setText("You dehydrated to death! \n Water is the most important resource \n in the wild!");
+            popUpText.setText("You dehydrated to death! \n Water is the most important \n resource \n in the wild!");
         }
         else if(fStat<=0){
             option1Box.setVisible(false);
