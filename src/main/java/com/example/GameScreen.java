@@ -135,9 +135,9 @@ public class GameScreen {
     @FXML
     public void initialize() {
         // This method runs automatically when the scene loads
-        //foodBar.setImage(new Image(getClass().getResourceAsStream("/capstone/bars/blue1.png")));
-       
-         img = new Image(getClass().getResourceAsStream("green3.png"));
+        
+       //set initial stat picks
+        img = new Image(getClass().getResourceAsStream("green3.png"));
         foodBar.setImage(img);
         img = new Image(getClass().getResourceAsStream("blue3.png"));
         waterBar.setImage(img);
@@ -162,7 +162,7 @@ public class GameScreen {
         eventNum=0;
         ageStage=1;
         isDead=false;
-
+         //set initial stat numbers
         foodStat.setText(fStat+"/5");
         waterStat.setText(wStat+"/5");
         healthStat.setText(hStat+"/5");
@@ -172,7 +172,7 @@ public class GameScreen {
         squareForFeedback.setVisible(true);
         feedbackText.setText("This is the tutorial! \n Hit next to start the tutorial!");
         }
-
+        
     @FXML
     void chooseFood(MouseEvent event) {
         if(pointys<=0){
@@ -369,9 +369,7 @@ public class GameScreen {
             System.out.println(changeImageTo);
             System.out.println(sStat);
             ageStage=0;
-            }
-        
-            
+            }       
         }
         else if(eventNum==2){
             System.out.println(ageUpStage);
@@ -393,7 +391,6 @@ public class GameScreen {
                 hStat-=1;
                 didYouDie();
                 
-
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 tutNext.setVisible(false);
@@ -442,8 +439,6 @@ public class GameScreen {
                 hStat-=1;
                 didYouDie();
 
-                
-
                 feedbackText.setVisible(false);
                 squareForFeedback.setVisible(false);
                 tutNext.setVisible(false);
@@ -455,8 +450,7 @@ public class GameScreen {
             foodStat.setText(fStat+"/5");
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
-
-                
+    
             changeImageTo =("blue"+wStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             waterBar.setImage(img);
@@ -499,16 +493,8 @@ public class GameScreen {
                 delay.setOnFinished(event2 ->  System.exit(0));
                 delay.play();
             }
-           
         }
-
     }
-    public void closeAfterDelay(Stage stage) {
-        PauseTransition delay = new PauseTransition(Duration.seconds(5));
-        delay.setOnFinished(event -> stage.close());
-        delay.play();
-    }
-
     @FXML
     void okay(MouseEvent event) {
         popUpSqaure.setVisible(false);
@@ -528,7 +514,6 @@ public class GameScreen {
             option2Text.setVisible(true);
             HBoxOption2.setVisible(true);
         }
-
     }
 
     public void bigEvent(){
@@ -579,7 +564,6 @@ public class GameScreen {
             option1Text.setText("Show them how much of \n a boss you are");
             option2Text.setText("Pee on them");
         }
-
     }
     @FXML
     void option1Picked(MouseEvent event) {
@@ -606,7 +590,6 @@ public class GameScreen {
             fStat-=1;
 
             didYouDie();
-
 
             changeImageTo =("blue"+wStat+".png");
             System.out.println(changeImageTo);
@@ -647,10 +630,8 @@ public class GameScreen {
             warmthBar.setImage(img);
             warmthStat.setText(sStat+"/5");
             
-
             feedbackText.setText("You lost your shelter \n but survived the storm! \n In the wild shelter may not always be \n the best option if it is not sturdy.\n Good choice!");
             tutNext.setText("Complete");
-
         }
         else if(eventNum==3){
             option1Box.setVisible(false);
@@ -680,7 +661,6 @@ public class GameScreen {
             foodBar.setImage(img);
             foodStat.setText(fStat+"/5");
             
-
             feedbackText.setText("The bear took your food and destoryed your shelter! \n In the wild never try to fight agianst animals, \n its better to be cold and alive than dead! \n Good choice!");
             tutNext.setText("Complete");
 
@@ -708,7 +688,6 @@ public class GameScreen {
         String changeImageTo =("badman.png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             thumbsUpGuy.setImage(img);
-    
         if(eventNum==1){
             bear.setVisible(true);
             option1Box.setVisible(false);
@@ -734,9 +713,6 @@ public class GameScreen {
 
             healthStat.setText(hStat+"/5");
             }
-            
-            
-
         }
         else if(eventNum==2){
             option1Box.setVisible(false);
@@ -757,7 +733,6 @@ public class GameScreen {
             hStat-=3;
             sStat-=3;
             
-            
             if(hStat>0 && sStat>0){
             changeImageTo =("red"+hStat+".png");
             img = new Image(getClass().getResourceAsStream(changeImageTo));
@@ -767,12 +742,8 @@ public class GameScreen {
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             warmthBar.setImage(img);
             }
-
             healthStat.setText(hStat+"/5");
             warmthStat.setText(sStat+"/5");
-            
-            
-
         }
         else if(eventNum==3){
             option1Box.setVisible(false);
@@ -796,10 +767,7 @@ public class GameScreen {
             img = new Image(getClass().getResourceAsStream(changeImageTo));
             healthBar.setImage(img);
             }
-
             healthStat.setText(hStat+"/5");
-            
-
         }
         else if(eventNum==4){
             option1Box.setVisible(false);
@@ -894,8 +862,6 @@ public class GameScreen {
         } else {
             System.out.println("I am alive!");
         }
-        
     }
-
 }
 
